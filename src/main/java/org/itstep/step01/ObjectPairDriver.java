@@ -33,17 +33,20 @@ public class ObjectPairDriver {
      */
     public static String largestStadium(ObjectPair[] stadiums) {
         // TODO: реализуйте это метод в соответствии с комментариями
-        int max = (int)stadiums[0].getSecond();
+        int max = (int) stadiums[0].getSecond();
         String maxName = (String)stadiums[0].getFirst();
-        for(ObjectPair item: stadiums)
+        for(int i = 0; i<stadiums.length; i++)
         {
-            if((int)item.getSecond()>max)
+            String tmpData = stadiums[i].getSecond().toString().replace(',','_');
+            //TODO remove the comma
+            Integer tmpInt = Integer.parseInt(tmpData);
+            //float tmp = (float)item.getSecond();
+            if(tmpInt>max)
             {
-                max = (int)item.getSecond();
-                maxName = (String)item.getSecond();
+                max = tmpInt;
+                maxName = (String)stadiums[i].getFirst();
             }
         }
         return maxName;
     }
-
 }
