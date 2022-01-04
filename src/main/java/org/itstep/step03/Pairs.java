@@ -30,8 +30,13 @@ public class Pairs<K, V> implements Iterable<Pair<K, V>> {
 //     * @return true - если пара была добавлена, false - в противном случае
 //     */
     public boolean addPair(K first, V second) {
-        pairs.add(new Pair(first,second));
-        return true;
+        if(pairs.add(new Pair(first,second))){
+            return true;
+
+        }else
+        {
+            return false;
+        }
     }
 
    /* @Override
