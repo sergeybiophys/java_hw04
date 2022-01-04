@@ -1,5 +1,8 @@
 package org.itstep.step03;
 
+import org.itstep.step02.Pair;
+
+import java.util.ArrayList;
 import java.util.Iterator;
 
 ///**
@@ -8,15 +11,16 @@ import java.util.Iterator;
 // * @author Michael S. Kirkpatrick and Nathan Sprague
 // * @version V1, 8/2017
 // */
-//public class Pairs<K, V> implements Iterable<Pair<K, V>> {
+public class Pairs<K, V> implements Iterable<Pair<K, V>> {
 //
 //    /* TODO: Объявить массив фиксированного размера (максимум 10 элементов) объектов Pair */
-//
+     ArrayList<Pair> pairs = new ArrayList<>();
 //    /**
 //     * Создайте коллекцию, в которой будут храниться элементы, добавленные парами.
 //     */
-//    public Pairs() {
-//    }
+    public Pairs() {
+
+    }
 //
 //    /**
 //     * TODO: Создайте новую пару и добавьте ее в коллекцию, если есть место.
@@ -25,46 +29,57 @@ import java.util.Iterator;
 //     * @param second Второй объект
 //     * @return true - если пара была добавлена, false - в противном случае
 //     */
-//    public boolean addPair(K first, V second) {
-//        return true;
-//    }
+    public boolean addPair(K first, V second) {
+        pairs.add(new Pair(first,second));
+        return true;
+    }
+
+   /* @Override
+    public Iterator<Pair<K, V>> iterator() {
+        return null;
+    }*/
+
 //
-//
-//    @Override
-//    public Iterator<Pair<K, V>> iterator() {
-//        return new PairIterator();
-//    }
+    @Override
+    public Iterator<Pair<K, V>> iterator() {
+        return new PairIterator();
+    }
 //
 //    /*
 //     * TODO: Реализуйте итератор здесь на основе документации API по адресу
 //     * https://docs.oracle.com/javase/10/docs/api/java/util/Iterator.html Throw the exceptions as
 //     * specified
 //     */
-//    private class PairIterator implements Iterator<Pair<K, V>> {
+    private class PairIterator implements Iterator<Pair<K, V>> {
 //
 //        /**
 //         * TODO: Проверить наличие следующего элемента в итераторе
 //         */
-//        @Override
-//        public boolean hasNext() {
-//            throw new UnsupportedOperationException();
-//        }
+        @Override
+        public boolean hasNext() {
+            throw new UnsupportedOperationException();
+        }
+
+    /*     @Override
+         public Pair<K, V> next() {
+        return null;
+     }*/
 //
 //        /**
 //         * TODO: Вернуть следующую пару в итератор.
 //         * @throws NoSuchElementException - если больше нет элементов для итерации
 //         */
-//        @Override
-//        public Pair<K, V> next() {
-//            throw new UnsupportedOperationException();
-//        }
+        @Override
+        public Pair<K, V> next() {
+           throw new UnsupportedOperationException();
+        }
 //
 //        /**
 //         * TODO: Удалите предыдущую пару, возвращенную функцией next()
 //         */
-//        @Override
-//        public void remove() {
-//            throw new UnsupportedOperationException();
-//        }
-//    }
-//}
+       @Override
+        public void remove() {
+          throw new UnsupportedOperationException();
+       }
+   }
+}

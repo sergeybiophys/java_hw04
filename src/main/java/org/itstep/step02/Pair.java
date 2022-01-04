@@ -2,7 +2,7 @@ package org.itstep.step02;
 
 // TODO: Реализуйте здесь обобщенный класс Pari
 
-class Pair<T,S> {
+public class Pair<T,S> {
     private T first;
     private S second;
 
