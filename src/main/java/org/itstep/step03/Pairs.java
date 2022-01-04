@@ -15,6 +15,7 @@ public class Pairs<K, V> implements Iterable<Pair<K, V>> {
 //
 //    /* TODO: Объявить массив фиксированного размера (максимум 10 элементов) объектов Pair */
      ArrayList<Pair> pairs = new ArrayList<>();
+     private int position;
 //    /**
 //     * Создайте коллекцию, в которой будут храниться элементы, добавленные парами.
 //     */
@@ -30,13 +31,25 @@ public class Pairs<K, V> implements Iterable<Pair<K, V>> {
 //     * @return true - если пара была добавлена, false - в противном случае
 //     */
     public boolean addPair(K first, V second) {
-        if(pairs.add(new Pair(first,second))){
-            return true;
-
-        }else
+        boolean key = false;
+        int count = 0;
+        for(Pair item: pairs)
         {
-            return false;
+            if(item.getFirst().equals(first))
+            {
+                //pairs.add(new Pair(first,second));
+                //key = true;
+                count++;
+            }
         }
+        if(count==0)
+        {
+            pairs.add(new Pair(first,second));
+            key = true;
+            //position++;
+        }
+        return key;
+
     }
 
    /* @Override
@@ -62,7 +75,11 @@ public class Pairs<K, V> implements Iterable<Pair<K, V>> {
 //         */
         @Override
         public boolean hasNext() {
-            throw new UnsupportedOperationException();
+            if(position<pairs.size())
+                return true;
+            else
+                return false;
+            //throw new UnsupportedOperationException();
         }
 
     /*     @Override
@@ -76,7 +93,11 @@ public class Pairs<K, V> implements Iterable<Pair<K, V>> {
 //         */
         @Override
         public Pair<K, V> next() {
-           throw new UnsupportedOperationException();
+
+            Pair<K, V> aniObj = pairs.get(position);
+            position++;
+            return aniObj;
+            //throw new UnsupportedOperationException();
         }
 //
 //        /**
@@ -84,7 +105,9 @@ public class Pairs<K, V> implements Iterable<Pair<K, V>> {
 //         */
        @Override
         public void remove() {
-          throw new UnsupportedOperationException();
+
+            pairs.remove(position);
+            //throw new UnsupportedOperationException();
        }
    }
 }

@@ -24,7 +24,7 @@ public class PairsDriver {
         for (Pair<String, Integer> pair : pairs) {
             System.out.println(pair.toString());
         }
-        System.out.println();
+        System.out.println("**************************");
 
         Iterator<Pair<String, Integer>> iterator = pairs.iterator();
         while (iterator.hasNext()) {
@@ -39,7 +39,7 @@ public class PairsDriver {
         for (Pair<String, Integer> pair : pairs) {
             System.out.println(pair.toString());
         }
-        System.out.println();
+        System.out.println("-----------------");
 
         /* Теперь добавьте что-то еще и проверьте, что это было добавлено. */
         pairs.addPair("B", 10);
