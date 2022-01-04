@@ -15,7 +15,7 @@ public class Pairs<K, V> implements Iterable<Pair<K, V>> {
 //
 //    /* TODO: Объявить массив фиксированного размера (максимум 10 элементов) объектов Pair */
      ArrayList<Pair> pairs = new ArrayList<>();
-     private int position;
+
 //    /**
 //     * Создайте коллекцию, в которой будут храниться элементы, добавленные парами.
 //     */
@@ -73,6 +73,8 @@ public class Pairs<K, V> implements Iterable<Pair<K, V>> {
 //        /**
 //         * TODO: Проверить наличие следующего элемента в итераторе
 //         */
+        private int position = 0;
+
         @Override
         public boolean hasNext() {
             if(position<pairs.size())
@@ -94,9 +96,9 @@ public class Pairs<K, V> implements Iterable<Pair<K, V>> {
         @Override
         public Pair<K, V> next() {
 
-            Pair<K, V> aniObj = pairs.get(position);
-            position++;
-            return aniObj;
+            //Pair<K, V> aniObj = pairs.get(position);
+            //position++;
+            return pairs.get(position++);
             //throw new UnsupportedOperationException();
         }
 //
@@ -106,8 +108,8 @@ public class Pairs<K, V> implements Iterable<Pair<K, V>> {
        @Override
         public void remove() {
 
-            pairs.remove(position);
-            //throw new UnsupportedOperationException();
+            //pairs.remove(position--);
+            throw new UnsupportedOperationException();
        }
    }
 }
