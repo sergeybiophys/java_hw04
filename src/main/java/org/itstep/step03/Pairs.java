@@ -117,14 +117,17 @@ public class Pairs<K, V> implements Iterable<Pair<K, V>> {
        @Override
         public void remove() {
 
-            pairs.remove(position);
+            /*pairs.remove(position);
             if(position<pairs.size())
             {
                 for(int i = position; i<pairs.size()-1;i++)
                 {
                     pairs.set(i,pairs.get(i+1));
                 }
-            }
+            }*/
+           for (Pair pair : pairs) {
+               
+           }
             //throw new UnsupportedOperationException();
        }
    }
