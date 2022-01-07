@@ -3,6 +3,7 @@ package org.itstep.step03;
 import org.itstep.step02.Pair;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 
 ///**
@@ -14,8 +15,9 @@ import java.util.Iterator;
 public class Pairs<K, V> implements Iterable<Pair<K, V>> {
 //
 //    /* TODO: Объявить массив фиксированного размера (максимум 10 элементов) объектов Pair */
-     ArrayList<Pair> pairs = new ArrayList<Pair>();
-     private int count = 0;
+     //ArrayList<Pair> pairs = new ArrayList<Pair>();
+     ArrayList<Pair> pairs = new ArrayList<>(Arrays.asList(new Pair[10]));
+     private int capacity = 0;
 //    /**
 //     * Создайте коллекцию, в которой будут храниться элементы, добавленные парами.
 //     */
@@ -50,11 +52,12 @@ public class Pairs<K, V> implements Iterable<Pair<K, V>> {
             //position++;
         }
         return key;*/
-        //TODO capacity & size
-        if(10>pairs.size())
+
+        if(capacity<pairs.size())
         {
-            pairs.add(new Pair(first,second));
-            count++;
+            //pairs.add(new Pair(first,second));
+            pairs.set(capacity, new Pair(first,second));
+            capacity++;
             key = true;
         }
         return key;
@@ -103,31 +106,39 @@ public class Pairs<K, V> implements Iterable<Pair<K, V>> {
 //         * @throws NoSuchElementException - если больше нет элементов для итерации
 //         */
         @Override
-        public Pair<K, V> next() {
+        public Pair<K, V> next() throws NoSuchElementException {
 
             //Pair<K, V> aniObj = pairs.get(position);
             //position++;
-            return pairs.get(position++);
-            //throw new UnsupportedOperationException();
+
+            if(position<pairs.size())
+                return pairs.get(position++);
+            else
+               throw new NoSuchElementException("throws NoSuchElementException");
         }
 //
 //        /**
 //         * TODO: Удалите предыдущую пару, возвращенную функцией next()
 //         */
        @Override
-        public void remove() {
+        public void remove() throws IndexOutOfBoundsException {
+            if(position < pairs.size())
+                pairs.remove(--position);
 
-            /*pairs.remove(position);
-            if(position<pairs.size())
+            else
+               throw new IndexOutOfBoundsException();
+
+           /* pairs.remove(position);
+            if(position<pairs.size()-1)
             {
                 for(int i = position; i<pairs.size()-1;i++)
                 {
                     pairs.set(i,pairs.get(i+1));
                 }
             }*/
-           for (Pair pair : pairs) {
-               
-           }
+  /*         for (Pair pair : pairs) {
+
+           }*/
             //throw new UnsupportedOperationException();
        }
    }
