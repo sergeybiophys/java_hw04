@@ -38,9 +38,8 @@ public class ObjectPairDriver {
         for(int i = 0; i<stadiums.length; i++)
         {
             String tmpData = stadiums[i].getSecond().toString().replaceAll("[,]","");
-            //TODO remove the comma
             Integer tmpInt = Integer.parseInt(tmpData);
-            //float tmp = (float)item.getSecond();
+
             if(tmpInt>max)
             {
                 max = tmpInt;

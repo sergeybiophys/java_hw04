@@ -15,7 +15,7 @@ import java.util.Iterator;
 public class Pairs<K, V> implements Iterable<Pair<K, V>> {
 //
 //    /* TODO: Объявить массив фиксированного размера (максимум 10 элементов) объектов Pair */
-     //ArrayList<Pair> pairs = new ArrayList<Pair>();
+
      ArrayList<Pair> pairs = new ArrayList<>(Arrays.asList(new Pair[10]));
      private int capacity = 0;
 //    /**
@@ -34,40 +34,16 @@ public class Pairs<K, V> implements Iterable<Pair<K, V>> {
 //     */
     public boolean addPair(K first, V second) {
         boolean key = false;
-        /*boolean key = false;
-        int count = 0;
-        for(Pair item: pairs)
-        {
-            if(item.getFirst().equals(first))
-            {
-                //pairs.add(new Pair(first,second));
-                //key = true;
-                count++;
-            }
-        }
-        if(count==0)
-        {
-            pairs.add(new Pair(first,second));
-            key = true;
-            //position++;
-        }
-        return key;*/
 
         if(capacity<pairs.size())
         {
-            //pairs.add(new Pair(first,second));
             pairs.set(capacity, new Pair(first,second));
             capacity++;
             key = true;
         }
         return key;
-
     }
 
-   /* @Override
-    public Iterator<Pair<K, V>> iterator() {
-        return null;
-    }*/
 
 //
     @Override
@@ -93,13 +69,8 @@ public class Pairs<K, V> implements Iterable<Pair<K, V>> {
                 return true;
             else
                 return false;
-            //throw new UnsupportedOperationException();
         }
 
-    /*     @Override
-         public Pair<K, V> next() {
-        return null;
-     }*/
 //
 //        /**
 //         * TODO: Вернуть следующую пару в итератор.
@@ -108,8 +79,6 @@ public class Pairs<K, V> implements Iterable<Pair<K, V>> {
         @Override
         public Pair<K, V> next() throws NoSuchElementException {
 
-            //Pair<K, V> aniObj = pairs.get(position);
-            //position++;
 
             if(position<pairs.size())
                 return pairs.get(position++);
@@ -124,22 +93,8 @@ public class Pairs<K, V> implements Iterable<Pair<K, V>> {
         public void remove() throws IndexOutOfBoundsException {
             if(position < pairs.size())
                 pairs.remove(--position);
-
             else
                throw new IndexOutOfBoundsException();
-
-           /* pairs.remove(position);
-            if(position<pairs.size()-1)
-            {
-                for(int i = position; i<pairs.size()-1;i++)
-                {
-                    pairs.set(i,pairs.get(i+1));
-                }
-            }*/
-  /*         for (Pair pair : pairs) {
-
-           }*/
-            //throw new UnsupportedOperationException();
        }
    }
 }
